@@ -1,9 +1,9 @@
-import { Grid, GridItem, Show } from '@chakra-ui/react'
+import { Grid, GridItem, Show, Text } from '@chakra-ui/react'
 import Navbar from './Components/Navbar'
 import GameGrid from './Components/GameGrid'
 
 function App() {
-  
+ 
 
   return (
     <Grid templateAreas={{base: `"nav" "main"` ,lg: `"nav nav" "aside main"`}}>
@@ -12,6 +12,7 @@ function App() {
       <GridItem area="aside" >Aside</GridItem>
       </Show>
       <GridItem area="main" ><GameGrid></GameGrid></GridItem>
+      
       
     </Grid>
   )
