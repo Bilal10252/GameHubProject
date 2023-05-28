@@ -32,7 +32,9 @@ let useGame = (
     {
       params: {
         genres: GameQuery.genre?.id,
-        platforms:GameQuery.platform?.id
+        platforms:GameQuery.platform?.id,
+        ordering: GameQuery.sortOrder,
+        search: GameQuery.searchResult
       },
     },
     [GameQuery],
