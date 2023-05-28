@@ -10,7 +10,9 @@ interface fetchResp<T> {
 const useData = <T,>(
   url: string,
   requestConfig?: AxiosRequestConfig,
-  deps?: any[]
+  deps?: any[],
+ 
+
 ) => {
   let [data, setData] = useState<T[]>([]);
   let [error, setError] = useState();
@@ -22,7 +24,8 @@ const useData = <T,>(
 
       ApiClient.get<fetchResp<T>>(url, {
         signal: controller.signal,
-        ...requestConfig
+        ...requestConfig,
+       
       })
         .then((res) => {
           setData(res.data.results), setLoading(false);
@@ -40,7 +43,7 @@ const useData = <T,>(
         controller.abort();
       };
     },
-    deps ? deps : []
+    deps ? [...deps] : []
   );
 
   return { data, error, isloading };

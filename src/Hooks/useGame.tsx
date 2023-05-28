@@ -3,6 +3,8 @@ import ApiClient from "../Services/ApiClient";
 import { CanceledError } from "axios";
 import useData from "./useData";
 import { genre } from "./useGenres";
+import { PlatformObj } from "./usePlatform";
+import { gameQuery } from "../App";
 
 export interface game {
   id: number;
@@ -22,14 +24,22 @@ interface gameFetch {
   count: number;
   results: game[];
 }
-let useGame = (selectedGenre: genre | null) => {
-  return useData<game>("/games", {
-    params: {
-      genres: selectedGenre?.id,
+let useGame = (
+  GameQuery: gameQuery
+) => {
+  return useData<game>(
+    "/games",
+    {
+      params: {
+        genres: GameQuery.genre?.id,
+        platforms:GameQuery.platform?.id
+      },
     },
+    [GameQuery],
+    
+
    
-  },
-  [selectedGenre?.id]);
+  );
 };
 
 export default useGame;
