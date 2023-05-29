@@ -3,6 +3,7 @@ import useGenres, { genre } from "../Hooks/useGenres";
 import {
   Button,
   HStack,
+  Heading,
   Image,
   Link,
   List,
@@ -23,6 +24,7 @@ const Genres = ({ selectedGenre ,seletedGenreForColor}: Props) => {
   return (
     <>
       {error && null}
+      <Heading marginBottom={3} fontSize={"3xl"}>Genres</Heading>
 
       <List>
         {data.map((genre) => (
