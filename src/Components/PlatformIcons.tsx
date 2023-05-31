@@ -12,7 +12,7 @@ interface Props {
 }
 
 const PlatformIcons = ({ platform }: Props) => {
-    let Icons : {[key: string] : IconType}= {
+    let Icons : {[key: string] :  IconType}= {
         pc: FaWindows,
         playstation: FaPlaystation,
         xbox: FaXbox,
